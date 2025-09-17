@@ -8,6 +8,8 @@ const Profile = () => {
   
     const [profileUrl, setProfileUrl] = useState("https://placehold.co/100");
 
+    const [subscribed, setSubscribed] = useState<boolean>(false);
+
     const handleBannerChange = (event: any) => {
        const file = event.target.files[0];
        
@@ -51,6 +53,21 @@ const Profile = () => {
             </button>
 
             {/*Ended Here*/}
+            <div className="ml-4 mt-4">
+                <h1 className="text-2xl font-bold ml-[1rem]">Moses V</h1>
+                <p className="mt-2 ml-[1rem]">1M Views</p>
+                <p className="mt-2 ml-[1rem]">
+                    Description of Channel.....
+                </p>
+                
+                
+                {subscribed ?
+                    <button onClick={() => setSubscribed(current => !current)} className="mt-4 bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-500">Unsubscribe</button>
+                : 
+                    <button onClick={() => setSubscribed(current => !current)} className="mt-4 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-500">Subscribe</button>
+                }
+            
+            </div>
 
         </div>
 
