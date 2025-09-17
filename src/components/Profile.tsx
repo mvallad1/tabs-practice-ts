@@ -16,6 +16,14 @@ const Profile = () => {
        }
     }
 
+    const handleProfileChange = (event: any) => {
+       const file = event.target.files[0];
+       
+       if (file) {
+            setProfileUrl(URL.createObjectURL(file));
+       }
+    }
+
   return (
     <div className="relative w-[94%] ml-[5rem]">
         <div className="relative">
@@ -29,6 +37,24 @@ const Profile = () => {
                 <input type="file" id="banner-upload" accept="image/*" className="hidden" onChange={handleBannerChange}/>
             </button>
         </div>
+
+        {/*Channel Logo*/}
+        <div className="flex items-center ml-4 mt-[2rem]">
+            <img src={profileUrl} alt="Channel Logo" className="w-40 h-40 object-cover rounded-full border-white relative"/>
+
+            <button className="absolute ml-[3.6rem] mt-[10rem] bg-gray-800 text-white p-2 rounded-full hovering:bg-gray-600">
+                <label htmlFor="profile-upload" className="cursor-pointer">
+                    <FaCamera size={24} />
+                </label>
+
+                <input type="file" id="profile-upload" accept="image/*" className="hidden" onChange={handleProfileChange}/>
+            </button>
+
+            {/*Ended Here*/}
+
+        </div>
+
+
     </div>
   )
 }
