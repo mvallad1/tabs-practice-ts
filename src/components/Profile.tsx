@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FaCamera } from "react-icons/fa";
+import Tab from "./Tab";
 
 
 const Profile = () => {
@@ -71,7 +72,7 @@ const Profile = () => {
 
         </div>
 
-
+        <Tab />
     </div>
   )
 }
